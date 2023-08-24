@@ -17,7 +17,7 @@ export const IconText = ({ icon, text, state }) => {
         onClick={cambiarFocus}
       >
         <div className="w-8 hover:opacity-50 cursor-pointer ">{icon}</div>
-        <span className="text-base font-semibold hover:opacity-100 cursor-pointer w-full ">
+        <span className="text-sm font-semibold hover:opacity-100 cursor-pointer w-full ">
           {text}
         </span>
       </div>
