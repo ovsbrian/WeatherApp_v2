@@ -1,46 +1,80 @@
-import { Card, AreaChart, Title } from "@tremor/react";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Filler,
+  Legend,
+} from "chart.js";
 
-const chartdata = [
-  {
-    date: "Week 1",
-    SemiAnalysis: 30,
-    "Temp": 30,
-  },
-  {
-    date: "Week 2",
-    SemiAnalysis: 25,
-    "Temp": 25,
-  },
-  {
-    date: "Week 3",
-    SemiAnalysis: 20,
-    "Temp": 20,
-  },
-  {
-    date: "Week 4",
-    SemiAnalysis: 10,
-    "Temp": 10,
-  },
-];
+import { Line } from "react-chartjs-2";
 
-const dataFormatter = (number) => {
-  return Intl.NumberFormat("us").format(number).toString() + "° ";
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Filler,
+  Legend
+);
+
+const options = {
+  responsive: true,
+  scales: {
+    x: {
+      grid: {
+        display: false,
+      },
+      beginAtZero: false,
+    },
+    y: {
+      grid: {
+        display: false,
+      },
+    },
+  },
+  plugins: {
+    legend: {
+      display: false,
+    },
+    title: {
+      display: false,
+    },
+    tooltip: {
+      enabled: false,
+    },
+  },
 };
 
-export const Grafica = () => (
-  <>
-    <Title color="black">Average Weekly Temperature</Title>
-    <Card className="p-0 rounded-none " style={{ background: "none" }}>
-      <AreaChart
-        showGridLines={false}
-        style={{ background: "none" }}
-        className="h-48 bg-white pr-4"
-        data={chartdata}
-        index="date"
-        categories={["Temp"]}
-        colors={["blue"]}
-        valueFormatter={dataFormatter}
-      />
-    </Card>
-  </>
-);
+const labels = ["Week 1", "Week 2", "Week 3", "Week 4"];
+const beneficios = [1, 23, 12, -2];
+const data = {
+  labels,
+  datasets: [
+    {
+      pointRadius: 5,
+      pointBackgroundColor: "rgba(53, 162, 235)",
+      tension: 0.4,
+      fill: true,
+      datasets: false,
+      data: beneficios,
+      borderColor: "rgb(21, 53, 110)",
+      backgroundColor: "rgb(21, 53, 110,0.1)",
+    },
+  ],
+};
+
+export const Grafica = () => {
+  return (
+    <>
+      <div className=" w-full h-56   flex justify-center items-center">
+        <Line options={options} data={data} />
+      </div>
+    </>
+  );
+};

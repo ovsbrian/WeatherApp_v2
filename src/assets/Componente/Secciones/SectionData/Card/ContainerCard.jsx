@@ -1,12 +1,13 @@
 import { CloudRainWind } from "lucide-react";
 import { Card } from "./Card";
-import { Title } from "@tremor/react";
 
 export const ContainerCards = () => {
   return (
     <>
-      <div className="gap-4 flex flex-col w-full justify-center  ">
-      <Title color="black">Today overview</Title>
+      <div className="gap-4 flex flex-col w-full items-center  ">
+        <div className="flex justify-start items-start w-full">
+          <span className="text-xl font-semibold ">Today overview</span>
+        </div>
         <div className="flex gap-4">
           <Card
             date={"12km/m"}

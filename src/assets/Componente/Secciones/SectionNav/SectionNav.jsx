@@ -6,7 +6,7 @@ import { System } from "./System/System";
 export const SectionNav = () => {
   return (
     <>
-      <div className="h-full  flex flex-col justify-between">
+      <div className="h-full p4  flex flex-col justify-between">
         <div >
           <Logo
             logo={imgLogo}
