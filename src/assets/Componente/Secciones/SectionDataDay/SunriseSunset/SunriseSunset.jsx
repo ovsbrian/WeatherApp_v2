@@ -12,11 +12,11 @@ export const Twilight = ({ sunrise, sunset }) => {
         bg={"bg-[#2D4C86]"}
         colorText={"text-white"}
         radius={"rounded"}
-        h={'h-16'}
+        h={'md:h-24'}
       />
       <Card
         date={"5:20 PM"}
-        h={'h-16'}
+        h={'md:h-24'}
         icon={<Moon />}
         refe={"in 9 hours"}
         tipe={"Sunset"}

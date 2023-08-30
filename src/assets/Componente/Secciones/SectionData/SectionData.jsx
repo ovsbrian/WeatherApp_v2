@@ -5,7 +5,7 @@ import { NavTop } from "./NavTop/NavTop";
 export const SectionData = () => {
   return (
     <>
-      <div className="p-4 flex flex-col h-full gap-4 justify-center items-center">
+      <div className="p-4 flex flex-col justify-around  h-full">
         <NavTop />
         <ContainerCards />
         <Grafica />

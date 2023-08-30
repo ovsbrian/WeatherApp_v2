@@ -73,7 +73,7 @@ const data = {
 export const Grafica = () => {
   return (
     <>
-      <div className=" w-full h-56   flex justify-center items-center">
+      <div className="w-full h-80 flex justify-center items-center">
         <Line options={options} data={data} />
       </div>
     </>

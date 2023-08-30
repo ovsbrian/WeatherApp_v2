@@ -16,7 +16,7 @@ export const SectionDay = () => {
         <div className="my-4">
           <hr className="w-full bg-white opacity-50"></hr>
         </div>
-        <div className="flex flex-col gap-4 items-start w-full bg">
+        <div className="flex flex-col gap-4 items-start w-full ">
           <span className="text-xl font-semibold text-white ">
             Chance of rain
           </span>
@@ -25,11 +25,11 @@ export const SectionDay = () => {
           <Chancerain hour={4} chance={60} />
           <Chancerain hour={5} chance={70} />
         </div>
-        <div className="w-full flex flex-col gap-2 mt-1  ">
+        <div className="w-full flex flex-col gap-2 mt-4    ">
           <span className="text-xl font-semibold text-white ">
             Sunrise & Sunset
           </span>
-          <div className="flex flex-col gap-2 w-full">
+          <div className="flex flex-col gap-4 md:gap-2 w-full mb-4 mt-8">
             <Twilight />
           </div>
         </div>
