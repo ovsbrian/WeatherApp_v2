@@ -5,9 +5,9 @@ export const NavTop = () => {
   return (
     <>
       <div className="w-full md:flex flex flex-col items-center md:flex-row justify-between gap-4  ">
-        <div className="flex flex-col   ">
-          <span className="text-xl font-semibold">Jaunary 2022</span>
-          <span className="text-xs">Thursday, Jan 4, 2022</span>
+        <div className="flex flex-col">
+          <span className="text-2xl font-semibold">Jaunary 2022</span>
+          <span className="text-xl">Thursday, Jan 4, 2022</span>
         </div>
         <div className="flex">
           <div className="flex items-start w-64 h-16 rounded">

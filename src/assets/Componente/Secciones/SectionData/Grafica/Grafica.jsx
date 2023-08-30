@@ -58,13 +58,14 @@ const data = {
   labels,
   datasets: [
     {
-      pointRadius: 5,
+      pointRadius: 8,
       pointBackgroundColor: "rgba(53, 162, 235)",
       tension: 0.4,
       fill: true,
       data: beneficios,
       borderColor: "rgb(21, 53, 110)",
       backgroundColor: "rgb(21, 53, 110,0.1)",
+      
     },
  
   ],
@@ -73,7 +74,7 @@ const data = {
 export const Grafica = () => {
   return (
     <>
-      <div className="w-full h-80 flex justify-center items-center">
+      <div className="w-full h-80 flex justify-center items-center ">
         <Line options={options} data={data} />
       </div>
     </>

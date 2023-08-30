@@ -1,5 +1,5 @@
 import { Triangle } from "lucide-react";
-
+// million-ignore
 export const Card = ({ icon, tipe, date, iconTriangle, refe, verticalAlignment, bg,colorText, radius, h  }) => {
   const alignmentClass = verticalAlignment === "end" ? "items-end" : "items-center";
   return (
@@ -8,23 +8,23 @@ export const Card = ({ icon, tipe, date, iconTriangle, refe, verticalAlignment, 
         <div className="flex items-center w-5">
           <span>{icon}</span>
         </div>
-        <div className="flex flex-col items-center md:flex-none">
-          <div className="w-auto">
+        <div className="flex flex-col items-center md:items-start md:flex-none">
+          <div className="w-full">
             <span className="text-lg opacity-60">{tipe}</span>
           </div>
           <div>
-            <span className="text-xl font-semibold">{date}</span>
+            <span className="text-xl font-semibold w-full">{date}</span>
           </div>
         </div>
-        <div className={`flex justify-end w-full ${alignmentClass} gap-1 w-20 h-full`}>
+        <div className={`flex justify-center md:justify-end w-full ${alignmentClass} gap-1 w-20 h-full`}>
           {iconTriangle ? (
             <span className="mb-[5px]">
-              <Triangle size={10} color={iconTriangle} />
+              <Triangle size={12} color={iconTriangle} />
             </span>
           ) : (
             ""
           )}
-          <span className="text-sm opacity-60">{refe}</span>
+          <span className="text-base opacity-60">{refe}</span>
         </div>
       </div>
     </>
