@@ -12,16 +12,22 @@ export const ContainerCards = () => {
           <Card
             date={"12km/m"}
             icon={<CloudRainWind />}
+            bg={"bg-[#EEF2F4]"}
             iconTriangle={"red"}
             refe={"2km/h"}
+            verticalAlignment={"end"}
             tipe={"Wind Speed"}
+            h={"h-20"}
           />
           <Card
             date={"24%"}
+            verticalAlignment={"end"}
             icon={<CloudRainWind />}
             iconTriangle={"blue"}
+            bg={"bg-[#EEF2F4]"}
             refe={"10%"}
             tipe={"Rain Chanse"}
+            h={"h-20"}
           />
         </div>
         <div className="flex gap-4">
@@ -30,6 +36,9 @@ export const ContainerCards = () => {
             icon={<CloudRainWind />}
             iconTriangle={"blue"}
             refe={"32 hpa"}
+            verticalAlignment={"end"}
+            bg={"bg-[#EEF2F4]"}
+            h={"h-20"}
             tipe={"Pressure"}
           />
           <Card
@@ -38,6 +47,9 @@ export const ContainerCards = () => {
             iconTriangle={"red"}
             refe={"0,3"}
             tipe={"Uv index"}
+            h={"h-20"}
+            verticalAlignment={"end"}
+            bg={"bg-[#EEF2F4]"}
           />
         </div>
       </div>

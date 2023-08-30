@@ -30,12 +30,14 @@ const options = {
       grid: {
         display: false,
       },
-      beginAtZero: false,
+      beginAtZero: true,
     },
     y: {
+     
       grid: {
         display: false,
       },
+     
     },
   },
   plugins: {
@@ -45,14 +47,13 @@ const options = {
     title: {
       display: false,
     },
-    tooltip: {
-      enabled: false,
-    },
+   
   },
 };
 
 const labels = ["Week 1", "Week 2", "Week 3", "Week 4"];
 const beneficios = [1, 23, 12, -2];
+ 
 const data = {
   labels,
   datasets: [
@@ -61,11 +62,11 @@ const data = {
       pointBackgroundColor: "rgba(53, 162, 235)",
       tension: 0.4,
       fill: true,
-      datasets: false,
       data: beneficios,
       borderColor: "rgb(21, 53, 110)",
       backgroundColor: "rgb(21, 53, 110,0.1)",
     },
+ 
   ],
 };
 
