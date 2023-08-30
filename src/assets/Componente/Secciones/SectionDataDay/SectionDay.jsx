@@ -1,6 +1,6 @@
 import { Chancerain } from "./ChanceRain/ChanceRain";
 import { CityHour } from "./CityHour/CityHour";
-import { DataCity } from "./DataCity/DataCity";
+import {  DataCity } from "./DataCity/DataCity";
 import { Twilight } from "./SunriseSunset/SunriseSunset";
 
 export const SectionDay = () => {
