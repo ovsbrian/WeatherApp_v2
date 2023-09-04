@@ -10,6 +10,12 @@ export const NavTop = () => {
   const handleSearch = () => {
     fetchWeatherData(city);
   };
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      // Si se presiona la tecla "Enter", realiza la búsqueda
+      handleSearch();
+    }
+  };
 
   return (
     <>
@@ -19,15 +25,17 @@ export const NavTop = () => {
           <span className="text-xl">Thursday, Jan 4, 2022</span>
         </div>
         <div className="flex">
-          <div className="flex items-start w-64 h-16 rounded">
-            <Search className="pl-1 ml-1 mt-2 absolute" size={24} />
+          <div className="flex flex-row-reverse items-start w-64 h-16 rounded">
             <input
-              className="w-full h-10 bg-[rgb(214,232,241,0.51)]"
+              className="w-72 h-10 pl-2  bg-[rgb(214,232,241,0.51)]"
               type="text"
               value={city}
               onChange={(e) => setCity(e.target.value)}
+              onKeyUp={handleKeyPress}
             ></input>
-            <button onClick={handleSearch}>Search</button>
+            <button onClick={handleSearch} className=" w-10 h-10 flex items-center justify-center bg-[rgb(214,232,241,0.51)]">
+              <Search className="    " size={24} />
+            </button>
           </div>
           <div className="flex gap-4 px-4">
             <IconCuadrado icon={<User />} />

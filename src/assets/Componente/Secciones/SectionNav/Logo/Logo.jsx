@@ -1,5 +1,5 @@
 export const Logo = ({ logo, nombre, url }) => {
-  console.log(logo);
+ 
   return (
     <>
       <div className="w-full  flex gap-2 items-center h-10 ">
