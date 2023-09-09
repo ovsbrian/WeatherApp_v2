@@ -52,7 +52,7 @@ const options = {
 };
 
 const labels = ["Week 1", "Week 2", "Week 3", "Week 4"];
-const beneficios = [1, 23, 12, -2];
+const beneficios = [1, 3, 1, -2];
  
 const data = {
   labels,

@@ -13,3 +13,12 @@ export const getAdjustedUTC = (hour) => {
 
   return horaFormateada;
 };
+
+
+export const convertKelvinToCelsius = (temperatureKelvin) => {
+  return temperatureKelvin - 273.15;
+};
+
+export function convertMsToKmh(windSpeedMs) {
+  return windSpeedMs * 3.6;
+}

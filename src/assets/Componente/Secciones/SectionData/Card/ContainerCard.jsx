@@ -1,7 +1,18 @@
 import { CloudRainWind } from "lucide-react";
 import { Card } from "./Card";
+import { useWeatherData } from "../../../../Hook/useWeatherData";
+import { convertKelvinToCelsius, convertMsToKmh } from "../../../../Hook/utils";
 
 export const ContainerCards = () => {
+  const { weatherData } = useWeatherData();
+
+  if (!weatherData) {
+    return null;
+  }
+  const { currentWeather } = weatherData;
+
+  console.log(currentWeather);
+
   return (
     <>
       <div className="md:gap-4 flex flex-col w-full h-64 items-center justify-center my-10">
@@ -11,43 +22,43 @@ export const ContainerCards = () => {
         <div className="flex gap-4 w-full ">
           <div className=" w-full   flex flex-col gap-1 md:gap-4 ">
             <Card
-              date={"12km/m"}
+              date={Math.round(convertMsToKmh(currentWeather.wind.speed))  + " km/m"}
               icon={<CloudRainWind />}
               bg={"bg-[#d8dee6]"}
-              iconTriangle={"red"}
-              refe={"2km/h"}
               verticalAlignment={"end"}
               tipe={"Wind Speed"}
               h={"h-40 md:h-20"}
             />
             <Card
-              date={"24%"}
+              date={
+                Math.round(
+                  convertKelvinToCelsius(currentWeather.main.temp_max)
+                ) + "° C"
+              }
               verticalAlignment={"end"}
               icon={<CloudRainWind />}
-              iconTriangle={"blue"}
               bg={"bg-[#d8dee6]"}
-              refe={"10%"}
-              tipe={"Rain Chanse"}
+              tipe={"Temp Max"}
               h={"h-40 md:h-20"}
             />
           </div>
           <div className=" w-full  flex flex-col gap-1 md:gap-4 ">
             <Card
-              date={"720 hpa"}
+              date={currentWeather.main.pressure + " hPa"}
               icon={<CloudRainWind />}
-              iconTriangle={"blue"}
-              refe={"32 hpa"}
               verticalAlignment={"end"}
               bg={"bg-[#d8dee6]"}
               h={"h-40 md:h-20"}
               tipe={"Pressure"}
             />
             <Card
-              date={"2,3"}
+              date={
+                Math.round(
+                  convertKelvinToCelsius(currentWeather.main.temp_min)
+                ) + "° C"
+              }
               icon={<CloudRainWind />}
-              iconTriangle={"red"}
-              refe={"0,3"}
-              tipe={"Uv index"}
+              tipe={"Temp Min"}
               h={"h-40 md:h-20"}
               verticalAlignment={"end"}
               bg={"bg-[#d8dee6]"}

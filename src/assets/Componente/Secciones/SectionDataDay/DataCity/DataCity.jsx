@@ -1,4 +1,5 @@
 import { useWeatherData } from "../../../../Hook/useWeatherData";
+import { convertKelvinToCelsius } from "../../../../Hook/utils";
 
 export const DataCity = () => {
   const { weatherData } = useWeatherData({});
@@ -9,13 +10,11 @@ export const DataCity = () => {
 
   const { forecastWeather } = weatherData;
   const { currentWeather } = weatherData;
- 
   const { name } = currentWeather;
-  const temperatureKelvin = forecastWeather.list[0].main.temp;
-  const temperatureCelsius = temperatureKelvin - 273.15;
+
   const iconDay = forecastWeather.list[0].weather[0].icon;
   const iconUrl = `https://openweathermap.org/img/wn/${iconDay}.png`;
-console.log(iconUrl)
+
   return (
     <div className="App">
       <div className="weather-info">
@@ -25,7 +24,7 @@ console.log(iconUrl)
         <div className="flex w-full justify-between items-center text-white">
           <div className="w-2/3">
             <span className="text-5xl ">
-              {Math.round(temperatureCelsius)}° C
+              {Math.round(convertKelvinToCelsius(forecastWeather.list[0].main.temp))}° C
             </span>
           </div>
           <div className="w-1/3">
