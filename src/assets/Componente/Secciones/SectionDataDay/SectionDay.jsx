@@ -7,6 +7,8 @@ import { Twilight } from "./SunriseSunset/SunriseSunset";
 export const SectionDay = () => {
   const { weatherData } = useWeatherData();
   
+  const { forecastWeather } = weatherData;
+ 
   if (!weatherData) {
     return null;  
   }
@@ -15,9 +17,11 @@ export const SectionDay = () => {
   const countryName = currentWeather.sys.country
   const timezoneOffset = currentWeather.timezone
  
+  
+
   return (
     <>
-      <div className="pt-4 px-8  ">
+      <div className="pt-4 px-4  ">
         <CityHour
           city={cityName}
           country={countryName}
@@ -31,13 +35,14 @@ export const SectionDay = () => {
           <span className="text-xl font-semibold text-white ">
             Chance of rain
           </span>
-          <Chancerain hour={timezoneOffset} chance={20} />
+          <Chancerain hour={timezoneOffset} chance={forecastWeather.list[0].pop  * 100} />
+          <Chancerain hour={timezoneOffset + 3 * 3600} chance={forecastWeather.list[1].pop  * 100} />
         </div>
-        <div className="w-full flex flex-col gap-2 mt-4    ">
+        <div className="w-full flex flex-col gap-2 mt-4 ">
           <span className="text-xl font-semibold text-white ">
             Sunrise & Sunset
           </span>
-          <div className="flex flex-col gap-4 md:gap-2 w-full mb-4 mt-8">
+          <div className="flex flex-col gap-4 md:gap-2 w-full mb-4">
             <Twilight />
           </div>
         </div>

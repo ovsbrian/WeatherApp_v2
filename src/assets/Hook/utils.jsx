@@ -19,6 +19,6 @@ export const convertKelvinToCelsius = (temperatureKelvin) => {
   return temperatureKelvin - 273.15;
 };
 
-export function convertMsToKmh(windSpeedMs) {
+export const convertMsToKmh = (windSpeedMs) => {
   return windSpeedMs * 3.6;
 }

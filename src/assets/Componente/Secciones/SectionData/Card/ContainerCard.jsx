@@ -15,7 +15,7 @@ export const ContainerCards = () => {
 
   return (
     <>
-      <div className="md:gap-4 flex flex-col w-full h-64 items-center justify-center my-10">
+      <div className="md:gap-4 flex flex-col w-full h-52 items-center justify-center my-6 gap-4">
         <div className="flex justify-start items-start w-full">
           <span className="text-xl font-semibold ">Today overview</span>
         </div>
