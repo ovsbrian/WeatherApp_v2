@@ -1,5 +1,5 @@
 import { Logo } from "./Logo/Logo";
-import imgLogo from "../../../imgs/logo.png";
+import imgLogo from "/logo.png";
 import { ContainerIconText } from "./Nav/ContainerIcoNText";
 import { System } from "./System/System";
 

@@ -23,10 +23,10 @@ export const convertMsToKmh = (windSpeedMs) => {
   return windSpeedMs * 3.6;
 }
 
-
 // Array de nombres de días y meses en inglés
 export const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 export const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+export const monthsAvr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 // Función para ajustar la fecha y hora a una zona horaria específica
 export const adjustTimezone = (date, timezone) => {
@@ -43,4 +43,9 @@ export const getDayName = (date) => {
 // Función para obtener el nombre del mes
 export const getMonthName = (date) => {
   return months[date.getMonth()];
+};
+
+// Función para obtener el nombre abreviado del mes
+export const getMonthAvrName = (date) => {
+  return monthsAvr[date.getMonth()];
 };

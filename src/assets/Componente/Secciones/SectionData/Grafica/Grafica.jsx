@@ -11,6 +11,7 @@ import {
 } from "chart.js";
 
 import { Line } from "react-chartjs-2";
+import { useWeatherData } from "../../../../Hook/useWeatherData";
 
 ChartJS.register(
   CategoryScale,
@@ -72,9 +73,11 @@ const data = {
 };
 
 export const Grafica = () => {
+  const { weatherData } = useWeatherData();
+  if (!weatherData) return null;
   return (
     <>
-      <div className="w-full h-60 mt-16 md:mt-2   flex justify-center items-center ">
+      <div className="w-full h-full mt-16 md:mt-2   flex justify-center items-center ">
         <Line options={options} data={data} />
       </div>
     </>

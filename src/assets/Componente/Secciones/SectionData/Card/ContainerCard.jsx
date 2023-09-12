@@ -2,12 +2,13 @@ import { CloudRainWind } from "lucide-react";
 import { Card } from "./Card";
 import { useWeatherData } from "../../../../Hook/useWeatherData";
 import { convertKelvinToCelsius, convertMsToKmh } from "../../../../Hook/utils";
+import { DataNullImg } from "../DataNull";
 
 export const ContainerCards = () => {
   const { weatherData } = useWeatherData();
 
   if (!weatherData) {
-    return null;
+    return <DataNullImg/>;
   }
   const { currentWeather } = weatherData;
 
