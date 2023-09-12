@@ -11,7 +11,7 @@ export const ContainerCards = () => {
   }
   const { currentWeather } = weatherData;
 
-  console.log(currentWeather);
+ 
 
   return (
     <>

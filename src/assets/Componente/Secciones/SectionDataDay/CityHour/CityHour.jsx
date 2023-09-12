@@ -2,7 +2,7 @@ import { getAdjustedUTC } from "../../../../Hook/utils";
 
 export const CityHour = ({ city, country, hour }) => {
   const horaFormateada = getAdjustedUTC(hour)
-
+ 
   return (
     <>
       <div className="flex w-full mb-4">

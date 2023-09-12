@@ -1,48 +1,39 @@
 import { Moon, Sun } from "lucide-react";
 import { Card } from "../../SectionData/Card/Card";
 import { useWeatherData } from "../../../../Hook/useWeatherData";
+import { getAdjustedUTC } from "../../../../Hook/utils";
 
-export const Twilight = () => {
+export const Twilight = ({ hour }) => {
   const { weatherData } = useWeatherData();
 
-  if (!weatherData || !weatherData.currentWeather || typeof weatherData.currentWeather.sys.sunrise !== 'number' || typeof weatherData.currentWeather.sys.sunset !== 'number') {
+  if (
+    !weatherData ||
+    !weatherData.currentWeather ||
+    typeof weatherData.currentWeather.sys.sunrise !== "number" ||
+    typeof weatherData.currentWeather.sys.sunset !== "number"
+  ) {
     return null;
   }
-
-  const sunriseDate = new Date(weatherData.currentWeather.sys.sunrise * 1000);
-  const sunsetDate = new Date(weatherData.currentWeather.sys.sunset * 1000);
-
-  const now = new Date();
-  let tiempoPasadoOrestante;
-  let esDeDia;
-
-  if (now > sunriseDate && now < sunsetDate) {
-    tiempoPasadoOrestante = sunsetDate - now;
-    esDeDia = true;
-  } else {
-    tiempoPasadoOrestante = sunriseDate - now;
-    esDeDia = false;
-  }
-
-  const horasPasadasOrestantes = Math.floor(tiempoPasadoOrestante / (1000 * 60 * 60));
+  const sunrise =  new Date(weatherData.currentWeather.sys.sunrise * 1000);
+  const sunset = new Date(weatherData.currentWeather.sys.sunset * 1000);
+  const timezoneS = weatherData.currentWeather.timezone * 1000;
   
-  let refValue;
+  sunrise.setTime(sunrise.getTime() + sunrise.getTimezoneOffset() * 60 * 1000 + timezoneS);
+  sunset.setTime(sunset.getTime() + sunset.getTimezoneOffset() * 60 * 1000 + timezoneS);
+  let options = { hour: '2-digit', minute: '2-digit' };
+  let sunsireTime = sunrise.toLocaleTimeString('es-UY', options)
+  let sunsetTime = sunset.toLocaleTimeString('es-UY', options)
 
-  if (esDeDia) {
-    refValue = `${horasPasadasOrestantes} hours ago`;
-  } else {
-    refValue = `in ${horasPasadasOrestantes} hours`;
-  }
 
-  const sunriseTime = sunriseDate.toLocaleTimeString();
-  const sunsetTime = sunsetDate.toLocaleTimeString();
+  console.log ("Sunrise es " + sunsireTime)
+  console.log("sunset es " + sunsetTime)
+  const aasa = 1;
 
   return (
     <>
       <Card
-        date={sunriseTime}
+        date={sunsireTime}
         icon={<Sun />}
-        refe={esDeDia ? refValue : `in ${horasPasadasOrestantes} hours`}
         tipe={"Sunrise"}
         bg={"bg-[#2D4C86]"}
         colorText={"text-white"}
@@ -53,7 +44,6 @@ export const Twilight = () => {
         date={sunsetTime}
         h={"md:h-20"}
         icon={<Moon />}
-        refe={esDeDia ? `in ${horasPasadasOrestantes} hours` : refValue}
         tipe={"Sunset"}
         bg={"bg-[#2D4C86]"}
         colorText={"text-white"}

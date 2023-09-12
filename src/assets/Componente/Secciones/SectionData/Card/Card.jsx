@@ -4,7 +4,6 @@ export const Card = ({
   icon,
   tipe,
   date,
-  refe,
   verticalAlignment,
   bg,
   colorText,
@@ -31,9 +30,7 @@ export const Card = ({
         </div>
         <div
           className={`flex justify-center md:justify-end w-full ${alignmentClass} gap-1 w-20 h-full`}
-        >
-          {refe ? <span className="text-base opacity-60">{refe}</span> : ""}
-        </div>
+        ></div>
       </div>
     </>
   );

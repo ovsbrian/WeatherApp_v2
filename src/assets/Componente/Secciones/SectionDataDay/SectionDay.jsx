@@ -5,13 +5,15 @@ import {  DataCity } from "./DataCity/DataCity";
 import { Twilight } from "./SunriseSunset/SunriseSunset";
 
 export const SectionDay = () => {
+   
   const { weatherData } = useWeatherData();
-  
-  const { forecastWeather } = weatherData;
+
  
   if (!weatherData) {
     return null;  
   }
+    
+  const { forecastWeather } = weatherData;
   const { currentWeather } = weatherData;
   const cityName = currentWeather.name
   const countryName = currentWeather.sys.country
@@ -43,7 +45,7 @@ export const SectionDay = () => {
             Sunrise & Sunset
           </span>
           <div className="flex flex-col gap-4 md:gap-2 w-full mb-4">
-            <Twilight />
+            <Twilight  hour={timezoneOffset}/>
           </div>
         </div>
       </div>
