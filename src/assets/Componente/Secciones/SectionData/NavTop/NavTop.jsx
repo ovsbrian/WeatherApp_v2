@@ -1,51 +1,51 @@
-import { Bell,  Search, User } from "lucide-react";
-import { IconCuadrado } from "./IconCuadrado";
+import { Moon, Sun } from "lucide-react";
+import { Card } from "../../SectionData/Card/Card";
 import { useWeatherData } from "../../../../Hook/useWeatherData";
-import { useState } from "react";
+import { adjustTimezone, getDayName, getMonthName } from "../../../../Hook/utils";
+ 
 
-export const NavTop = () => {
-  const [city, setCity] = useState("");
-  const { fetchWeatherData } = useWeatherData();
+export const Twilight = ({ hour }) => {
+  const { weatherData } = useWeatherData();
 
-  const handleSearch = () => {
-    fetchWeatherData(city);
-  };
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      handleSearch();
-    }
-  };
+  if (
+    !weatherData ||
+    !weatherData.currentWeather ||
+    typeof weatherData.currentWeather.sys.sunrise !== "number" ||
+    typeof weatherData.currentWeather.sys.sunset !== "number"
+  ) {
+    return null;
+  }
+  
+  let currentDate = new Date();
+  let timezoneS = weatherData.currentWeather.timezone;
 
+  // Ajustar la fecha y hora actuales a la zona horaria especificada
+  currentDate = adjustTimezone(currentDate, timezoneS);
+
+  // Obtener el nombre del día de la semana y del mes
+  let dayName = getDayName(currentDate);
+  let monthName = getMonthName(currentDate);
+ 
   return (
     <>
-      <div className="w-full  md:flex flex flex-col md:items-center md:flex-row justify-between gap-4 my-1">
-        <div className="flex flex-col">
-          <span className="text-lg font-semibold">Jaunary 2022</span>
-          <span className="text">Thursday, Jan 4, 2022</span>
-        </div>
-        <div className="flex mx-2  ">
-          <div className="flex flex-row-reverse items-start ml-2 w-52  rounded">
-            <input
-              className="w-60 h-10 pl-2  bg-[rgb(214,232,241,0.51)]"
-              type="text"
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              onKeyUp={handleKeyPress}
-            ></input>
-            <button
-              onClick={handleSearch}
-              className=" w-10   h-10 flex items-center justify-center bg-[rgb(214,232,241,0.51)]"
-            >
-              <Search className="m-2" size={20} />
-            </button>
-          </div>
-          <div className="flex gap-4 px-4">
-            <IconCuadrado icon={<User />} />
-            <IconCuadrado icon={<Bell />} />
-          </div>
-        </div>
-      </div>
-      <hr />
+      <Card
+        date={dayName}
+        icon={<Sun />}
+        tipe={"Day of the week"}
+        bg={"bg-[#2D4C86]"}
+        colorText={"text-white"}
+        radius={"rounded"}
+        h={"md:h-20"}
+      />
+      <Card
+        date={monthName}
+        h={"md:h-20"}
+        icon={<Moon />}
+        tipe={"Month"}
+        bg={"bg-[#2D4C86]"}
+        colorText={"text-white"}
+        radius={"rounded"}
+      />
     </>
   );
 };

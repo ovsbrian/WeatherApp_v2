@@ -1,8 +1,7 @@
 import { Moon, Sun } from "lucide-react";
 import { Card } from "../../SectionData/Card/Card";
 import { useWeatherData } from "../../../../Hook/useWeatherData";
-import { getAdjustedUTC } from "../../../../Hook/utils";
-
+ 
 export const Twilight = ({ hour }) => {
   const { weatherData } = useWeatherData();
 
@@ -27,7 +26,7 @@ export const Twilight = ({ hour }) => {
 
   console.log ("Sunrise es " + sunsireTime)
   console.log("sunset es " + sunsetTime)
-  const aasa = 1;
+
 
   return (
     <>

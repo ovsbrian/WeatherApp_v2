@@ -22,3 +22,25 @@ export const convertKelvinToCelsius = (temperatureKelvin) => {
 export const convertMsToKmh = (windSpeedMs) => {
   return windSpeedMs * 3.6;
 }
+
+
+// Array de nombres de días y meses en inglés
+export const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+export const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+// Función para ajustar la fecha y hora a una zona horaria específica
+export const adjustTimezone = (date, timezone) => {
+  let timezoneOffsetMillis = timezone * 1000;
+  date.setTime(date.getTime() + date.getTimezoneOffset() * 60 * 1000 + timezoneOffsetMillis);
+  return date;
+};
+
+// Función para obtener el nombre del día de la semana
+export const getDayName = (date) => {
+  return days[date.getDay()];
+};
+
+// Función para obtener el nombre del mes
+export const getMonthName = (date) => {
+  return months[date.getMonth()];
+};
