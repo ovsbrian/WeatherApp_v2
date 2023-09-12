@@ -1,4 +1,4 @@
-import { Search, User } from "lucide-react";
+import { Bell,  Search, User } from "lucide-react";
 import { IconCuadrado } from "./IconCuadrado";
 import { useWeatherData } from "../../../../Hook/useWeatherData";
 import { useState } from "react";
@@ -41,7 +41,7 @@ export const NavTop = () => {
           </div>
           <div className="flex gap-4 px-4">
             <IconCuadrado icon={<User />} />
-            <IconCuadrado icon={<User />} />
+            <IconCuadrado icon={<Bell />} />
           </div>
         </div>
       </div>
