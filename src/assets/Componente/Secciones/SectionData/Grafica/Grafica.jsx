@@ -34,11 +34,9 @@ const options = {
       beginAtZero: true,
     },
     y: {
-     
       grid: {
         display: false,
       },
-     
     },
   },
   plugins: {
@@ -48,36 +46,49 @@ const options = {
     title: {
       display: false,
     },
-   
   },
 };
+const DataGrafica = (infoGrados) => {
+  let labels = []
+  let temp = []
 
-const labels = ["Week 1", "Week 2", "Week 3", "Week 4"];
-const beneficios = [1, 3, 1, -2];
- 
-const data = {
-  labels,
-  datasets: [
-    {
-      pointRadius: 8,
-      pointBackgroundColor: "rgba(53, 162, 235)",
-      tension: 0.4,
-      fill: true,
-      data: beneficios,
-      borderColor: "rgb(21, 53, 110)",
-      backgroundColor: "rgb(21, 53, 110,0.1)",
-      
-    },
- 
-  ],
+  for (let i = 0; i < 4; i++) {
+    let grados = Math.round(infoGrados[i].main.temp - 273.15);
+    temp.push(grados);
+
+    let dt_txt = infoGrados[i].dt_txt;
+    let time = dt_txt.split(" ")[1];
+    let hourAndMinutes = time.split(":").slice(0, 2).join(":");
+    labels.push(hourAndMinutes);
+  }
+
+  const data = {
+    labels,
+    datasets: [
+      {
+        pointRadius: 8,
+        pointBackgroundColor: "rgba(53, 162, 235)",
+        tension: 0.4,
+        fill: true,
+        data: temp,
+        borderColor: "rgb(21, 53, 110)",
+        backgroundColor: "rgb(21, 53, 110,0.1)",
+      },
+    ],
+  };
+  return data;
 };
 
 export const Grafica = () => {
   const { weatherData } = useWeatherData();
+
   if (!weatherData) return null;
+  let infoGrados = weatherData.forecastWeather.list;
+
+  const data = DataGrafica(infoGrados);
   return (
     <>
-      <div className="w-full h-full mt-16 md:mt-2   flex justify-center items-center ">
+      <div className="w-full h-full mt-16 md:mt-2">
         <Line options={options} data={data} />
       </div>
     </>

@@ -8,7 +8,9 @@ export const SectionData = () => {
       <div className="p-4 flex flex-col gap-8 md:gap-0 justify-center max-h-full">
         <NavTop />
         <ContainerCards />
-        <Grafica />
+        <div className="h-64">
+          <Grafica />
+        </div>
       </div>
     </>
   );

@@ -13,7 +13,7 @@ function App() {
             <div className="bg-slate-200 md:w-1/6   ">
               <SectionNav />
             </div>
-            <div className="bg-[#EEF2F4] md:w-3/6 h-full">
+            <div className="bg-[#EEF2F4] md:w-3/6">
               <SectionData />
             </div>
             <div className="bg-blue-gradient md:w-2/6">
