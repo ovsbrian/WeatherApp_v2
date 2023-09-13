@@ -1,4 +1,4 @@
-import { CloudRainWind } from "lucide-react";
+import { CloudRainWind, ThermometerSnowflake, ThermometerSun, Waves } from "lucide-react";
 import { Card } from "./Card";
 import { useWeatherData } from "../../../../Hook/useWeatherData";
 import { convertKelvinToCelsius, convertMsToKmh } from "../../../../Hook/utils";
@@ -37,7 +37,7 @@ export const ContainerCards = () => {
                 ) + "° C"
               }
               verticalAlignment={"end"}
-              icon={<CloudRainWind />}
+              icon={<ThermometerSun />}
               bg={"bg-[#d8dee6]"}
               tipe={"Temp Max"}
               h={"h-40 md:h-20"}
@@ -46,7 +46,7 @@ export const ContainerCards = () => {
           <div className=" w-full  flex flex-col gap-1 md:gap-4 ">
             <Card
               date={currentWeather.main.pressure + " hPa"}
-              icon={<CloudRainWind />}
+              icon={<Waves />}
               verticalAlignment={"end"}
               bg={"bg-[#d8dee6]"}
               h={"h-40 md:h-20"}
@@ -58,7 +58,7 @@ export const ContainerCards = () => {
                   convertKelvinToCelsius(currentWeather.main.temp_min)
                 ) + "° C"
               }
-              icon={<CloudRainWind />}
+              icon={<ThermometerSnowflake />}
               tipe={"Temp Min"}
               h={"h-40 md:h-20"}
               verticalAlignment={"end"}
