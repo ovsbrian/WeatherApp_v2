@@ -13,6 +13,7 @@ export const Twilight = ({ hour }) => {
   ) {
     return null;
   }
+  
   const sunrise =  new Date(weatherData.currentWeather.sys.sunrise * 1000);
   const sunset = new Date(weatherData.currentWeather.sys.sunset * 1000);
   const timezoneS = weatherData.currentWeather.timezone * 1000;
@@ -24,8 +25,6 @@ export const Twilight = ({ hour }) => {
   let sunsetTime = sunset.toLocaleTimeString('es-UY', options)
 
 
-  console.log ("Sunrise es " + sunsireTime)
-  console.log("sunset es " + sunsetTime)
 
 
   return (
