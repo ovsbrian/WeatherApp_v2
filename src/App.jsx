@@ -2,20 +2,15 @@ import "./App.css";
 import { SectionData } from "./assets/Componente/Secciones/SectionData/SectionData";
 import { SectionDay } from "./assets/Componente/Secciones/SectionDataDay/SectionDay";
 import { SectionNav } from "./assets/Componente/Secciones/SectionNav/SectionNav";
-import {
-  WeatherDataProvider,
-  useWeatherData,
-} from "./assets/Hook/useWeatherData";
+import { WeatherDataProvider } from "./assets/Hook/useWeatherData";
 
 function App() {
- 
- 
   return (
     <>
       <div className="bg-[#EAEBEC] min-w-full min-h-screen flex justify-center items-center select-none overflow-x-hidden">
         <div
           className={`bg-slate-50 w-full md:w-5/6 flex flex-col md:flex-row shadow-2xl`}
-        > 
+        >
           <WeatherDataProvider>
             <div className="bg-slate-200 md:w-1/6">
               <SectionNav />

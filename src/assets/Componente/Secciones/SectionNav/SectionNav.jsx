@@ -11,7 +11,7 @@ export const SectionNav = () => {
           <Logo
             logo={imgLogo}
             nombre={"ovsbrian"}
-            url={"https://ovsbrian.github.io/"}
+            url={"https://www.ovsbrian.me"}
           />
           <ContainerIconText />
         </div>
